@@ -1,6 +1,6 @@
 {
   "name": "@lhj-cli-dev/core",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "liuhongjie.0802 <liuhongjie.0802@bytedance.com>",
   "homepage": "",
@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@lhj-cli-dev/core": "file:../../utils/utils",
-    "@lhj-cli-dev/log": "file:../../utils/log",
     "@lhj-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
+    "@lhj-cli-dev/log": "file:../../utils/log",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "import-local": "^3.0.2",
