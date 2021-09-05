@@ -6,12 +6,11 @@ const userHome = require('user-home')
 const pathExists = require('path-exists').sync
 const pkg = require('../package.json')
 const log = require('@lhj-cli-dev/log')
-const { getNpmInfo, getNpmVersion, getNpmSemverVersion } = require('@lhj-cli-dev/get-npm-info')
+const { getNpmSemverVersion } = require('@lhj-cli-dev/get-npm-info')
 
 const { LOWEST_NODE_VERSION, DEFAULT_CLI_HOME } = require('./const')
 
 let args
-let config
 
 async function core() {
     try {
