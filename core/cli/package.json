@@ -16,8 +16,9 @@
   "dependencies": {
     "@lhj-cli-dev/core": "file:../../utils/utils",
     "@lhj-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
-    "@lhj-cli-dev/log": "file:../../utils/log",
+    "@lhj-cli-dev/log": "^0.0.2",
     "colors": "^1.4.0",
+    "commander": "^8.1.0",
     "dotenv": "^10.0.0",
     "import-local": "^3.0.2",
     "minimist": "^1.2.5",
@@ -35,5 +36,6 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
-  }
+  },
+  "gitHead": "2e5208748bbf075abcad8f568ac2b223bc976acb"
 }

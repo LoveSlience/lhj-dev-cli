@@ -1,6 +1,7 @@
 'use strict';
 const path = require('path')
 const semver = require('semver')
+const commander = require('commander')
 const colors = require('colors/safe')
 const userHome = require('user-home')
 const pathExists = require('path-exists').sync
@@ -9,6 +10,8 @@ const log = require('@lhj-cli-dev/log')
 const { getNpmSemverVersion } = require('@lhj-cli-dev/get-npm-info')
 
 const { LOWEST_NODE_VERSION, DEFAULT_CLI_HOME } = require('./const')
+
+const program = new commander.Command();
 
 let args
 
@@ -21,6 +24,7 @@ async function core() {
         checkInputArgs()
         checktEnv()
        await checkoGolbalUpdate()
+        registerCommand()
         log.verbose('debug', 'test debug log')
     } catch (error) {
         log.error(error.message) 
@@ -74,7 +78,7 @@ function checktEnv() {
     const dotenv = require('dotenv')
     const dotenvPath =  path.resolve(userHome, '.env')
     if(pathExists(dotenvPath)) {
-        config = dotenv.config({path: dotenvPath})
+       dotenv.config({path: dotenvPath})
     }
     createDefaultConfig()
     log.verbose('环境变量', process.env.CLI_HOME_PATH)
@@ -102,6 +106,17 @@ async function checkoGolbalUpdate() {
         更新命令为 npm install -g ${npmName}
         `))
     }
+}
+
+
+function registerCommand() {
+    program
+    .usage('<command> [options')
+    .name(Object.keys(pkg.bin)[0])
+    .version(pkg.version)
+    .option('-d, --debug', '是否开启调试模式', false)
+
+    program.parse(process.argv)
 }
 
 module.exports = core;
